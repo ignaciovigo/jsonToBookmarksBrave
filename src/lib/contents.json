@@ -1,0 +1,119 @@
+[
+  {
+    "name": "formulahendry.auto-rename-tag"
+  },
+  {
+    "name": "ritwickdey.liveserver"
+  },
+  {
+    "name": "aaron-bond.better-comments"
+  },
+  {
+    "name": "meganrogge.template-string-converter"
+  },
+  {
+    "name": "dsznajder.es7-react-js-snippets"
+  },
+  {
+    "name": "tal7aouy.icons"
+  },
+  {
+    "name": "bradlc.vscode-tailwindcss"
+  },
+  {
+    "name": "yzhang.markdown-all-in-one"
+  },
+  {
+    "name": "rvest.vs-code-prettier-eslint"
+  },
+  {
+    "name": "esbenp.prettier-vscode"
+  },
+  {
+    "name": "yoavbls.pretty-ts-errors"
+  },
+  {
+    "name": "ms-python.python"
+  },
+  {
+    "name": "zhuangtongfa.material-theme"
+  },
+  {
+    "name": "ms-azuretools.vscode-docker"
+  },
+  {
+    "name": "ms-python.debugpy"
+  },
+  {
+    "name": "ms-ceintl.vscode-language-pack-es"
+  },
+  {
+    "name": "ms-python.python"
+  },
+  {
+    "name": "astro-build.astro-vscode"
+  },
+  {
+    "name": "usernamehw.errorlens"
+  },
+  {
+    "name": "rangav.vscode-thunder-client"
+  },
+  {
+    "name": "ms-vscode-remote.remote-containers"
+  },
+  {
+    "name": "vscode-icons-team.vscode-icons"
+  },
+  {
+    "name": "ms-python.python"
+  },
+  {
+    "name": "ms-python.vscode-pylance"
+  },
+  {
+    "name": "ms-dotnettools.vscode-dotnet-runtime"
+  },
+  {
+    "name": "donjayamanne.python-extension-pack"
+  },
+  {
+    "name": "batisteo.vscode-django"
+  },
+  {
+    "name": "kevinrose.vsc-python-indent"
+  },
+  {
+    "name": "wholroyd.jinja"
+  },
+  {
+    "name": "njpwerner.autodocstring"
+  },
+  {
+    "name": "visualstudioexptteam.intellicode-api-usage-examples"
+  },
+  {
+    "name": "donjayamanne.python-environment-manager"
+  },
+  {
+    "name": "visualstudioexptteam.vscodeintellicode"
+  },
+  {
+    "name": "ms-dotnettools.csharp"
+  },
+  {
+    "name": "dbaeumer.vscode-eslint"
+  },
+  {
+    "name": "wallabyjs.console-ninja"
+  },
+  {
+    "name": "ms-dotnettools.csdevkit"
+  },
+  {
+    "name": "dbaeumer.vscode-eslint"
+  },
+  {
+    "name": "ms-python.python"
+  }
+]
