@@ -1,16 +1,17 @@
 import Btn from "./Btn";
-import Textarea from "./Textarea";
+import HtmlBox from "./HtmlBox";
+import JsonBox from "./JsonBox";
 
 type Props = {};
 
 export default function Container({}: Props) {
   return (
-    <section className="w-full max-w-md md:max-w-2xl h-auto flex flex-col content-center items-center  justify-center md:flex-row gap-4">
-     <Textarea></Textarea>
+    <section className="w-full h-full  px-5 lg:px-7 flex flex-col content-center items-center  justify-center md:flex-row gap-4">
+     <JsonBox type='json'></JsonBox>
       <Btn>
-       Convert to HTML
+        Download HTML
       </Btn>
-      <Textarea></Textarea>
+      <HtmlBox type="html"></HtmlBox>
     </section>
   );
 }
