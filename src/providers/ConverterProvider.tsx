@@ -1,12 +1,16 @@
 import React, { ContextType, createContext, ReactNode, useState } from 'react'
+import { toast } from 'react-toastify';
 
 
 export const convertContext = createContext();
 export default function ConverterProvider({children}: {children:ReactNode}) {
     const [jsonContent, setJsonContent] = useState<string | any>("");
     const [htmlContent, setHtmlContent] = useState<string | any>("");
-
+    
     const convertJsonToHTML = () => {
+      try {
+        
+      
       let html = '<!DOCTYPE NETSCAPE-Bookmark-file-1>\n';
       html += '<!-- This is an automatically generated file.\n';
       html += '     It will be read and overwritten.\n';
@@ -44,6 +48,14 @@ export default function ConverterProvider({children}: {children:ReactNode}) {
     
       html += '</DL><p>\n';
       setHtmlContent(html)
+
+    } catch (error) {
+      console.log(error);
+      if( error instanceof TypeError){
+        toast("The json file must match with the bookmark.json structure",{type:'error'})
+      }else{
+        toast(error.message,{type:'error'})}       
+      }
     }
 
     const updateJson = (content: string) => {

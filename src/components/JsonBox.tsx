@@ -15,7 +15,6 @@ export default function JsonBox({ type }: Props) {
     const file = e.currentTarget.files?.[0];
     if(file){
       setFileName(file.name)
-
       const reader = new FileReader();
       reader.onload = (e) => {
         if(e.target?.result){
