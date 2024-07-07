@@ -8,22 +8,7 @@ type Props = {
 export default function HtmlBox({ type }: Props) {
   const [fileContent, setfileContent] = useState<string>("");
   const [fileName, setFileName] = useState<string>("");
-
-  const handleFileSelect: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const file = e.currentTarget.files?.[0];
-    if(file){
-      setFileName(file.name)
-
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if(e.target?.result){
-          const content = e.target.result as string
-          setfileContent(content)
-        }
-      }
-      reader.readAsText(file)
-    }
-  }
+  
   return (
     <>
 

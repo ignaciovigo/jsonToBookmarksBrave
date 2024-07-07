@@ -1,12 +1,23 @@
-import React from 'react'
-import { Context } from 'react'
+import React, { ContextType, createContext, ReactNode, useState } from 'react'
 
-const 
 
-type Props = {}
+const convertContext = createContext();
+}
+export default function ConverterProvider({children}: {children:ReactNode}) {
+    const [jsonContent, setJsonContent] = useState<string>("");
+    const [htmlContent, setHtmlContent] = useState<string>("");
 
-export default function ConverterProvider({}: Props) {
+    const convertJsonToHTML = () => {
+
+    }
+
+    const updateJson = (content: string) => {
+      setJsonContent(content) 
+    }
+    const values = {updateJson}
   return (
-    <div>ConverterProvider</div>
+    <convertContext.Provider value={values}>
+      {children}
+    </convertContext.Provider>
   )
 }
