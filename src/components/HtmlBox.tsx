@@ -1,14 +1,13 @@
 import { Editor } from '@monaco-editor/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import useConverter from '../hook/useConverter';
 
 type Props = {
   type: string;
 }
 
 export default function HtmlBox({ type }: Props) {
-  const [fileContent, setfileContent] = useState<string>("");
-  const [fileName, setFileName] = useState<string>("");
-  
+  const {htmlContent} = useConverter()
   return (
     <>
 
@@ -49,7 +48,7 @@ export default function HtmlBox({ type }: Props) {
       </div>
     </div>
     {/*  */}
-<Editor  className='w-full h-full max-h-[600px]' path={fileName} value={fileContent} theme='vs-dark' defaultLanguage={type} defaultValue="<!-- some comment -->" />
+<Editor  className='w-full h-full max-h-[600px]' path={'bookmarks.html'} value={htmlContent} theme='vs-dark' defaultLanguage={type} defaultValue="<!-- some comment -->" />
 </div>
 
   </>
