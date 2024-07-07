@@ -1,5 +1,6 @@
 import { Editor } from '@monaco-editor/react'
 import React, { useState } from 'react'
+import useConverter from '../hook/useConverter';
 
 type Props = {
   type: string;
@@ -9,6 +10,7 @@ export default function JsonBox({ type }: Props) {
   const [fileContent, setfileContent] = useState<string>("");
   const [fileName, setFileName] = useState<string>("");
   const [error, setError] = useState<string>("")
+  const { updateJson } = useConverter()
   const handleFileSelect: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const file = e.currentTarget.files?.[0];
     if(file){
@@ -19,18 +21,23 @@ export default function JsonBox({ type }: Props) {
         if(e.target?.result){
           const content = e.target.result as string
           setfileContent(content)
+          updateJson(content)
         }
       }
       reader.readAsText(file)
     }
   }
 
-  const handleChange:React.ChangeEventHandler<HTMLElement> = (value, event) => {
-    
-
+  const handleChange:React.ChangeEventHandler<HTMLElement> = (value) => {
+      updateJson(value)
   }
+
   const handleEditorValidation = (markers) => {
-    setError(markers[0]?.message)
+    if(markers.length == 0){
+      setError("")
+    } else{
+      setError(markers[0]?.message)
+    }
   }
   return (
     <>
@@ -60,7 +67,7 @@ export default function JsonBox({ type }: Props) {
             <span className="ml-2 sr-only">Attach JSON file</span>
             <input type="file" accept='.json' name='file' id='file' hidden onChange={handleFileSelect}/>
           </label>
-          <p className='text-xs text-red-600'>
+          <p id="error" className='text-xs text-red-600'>
             {error? error : ""}
           </p>
         </div>
