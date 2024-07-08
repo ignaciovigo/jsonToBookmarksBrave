@@ -10,7 +10,7 @@ type Props = {
 export default function HtmlBox({ type }: Props) {
   const { htmlContent } = useConverter();
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (htmlContent) {
       const blob = new Blob([htmlContent], { type: "text/hmtl" });
       const a = document.createElement("a");

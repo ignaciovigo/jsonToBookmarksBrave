@@ -27,12 +27,12 @@ export default function JsonBox({ type }: Props) {
     }
   }
 
-  const handleChange:React.ChangeEventHandler<HTMLElement> = (value) => {
+  const handleChange:React.ChangeEventHandler<HTMLElement> = (value:any) => {
     setfileContent(value)
       updateJson(value)
   }
 
-  const handleEditorValidation = (markers) => {
+  const handleEditorValidation = (markers:any) => {
     if(markers.length == 0){
       setError("")
     } else{
