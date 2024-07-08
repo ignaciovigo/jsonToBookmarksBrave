@@ -27,7 +27,7 @@ export default function JsonBox({ type }: Props) {
     }
   }
 
-  const handleChange:React.ChangeEventHandler<HTMLElement> = (value:any) => {
+  const handleChange = (value:any) => {
     setfileContent(value)
       updateJson(value)
   }
