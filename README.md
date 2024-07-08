@@ -1,30 +1,10 @@
-# React + TypeScript + Vite
+# JSON Bookmark to HTML Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a converter for JSON bookmark files to HTML files. It allows you to visualize your bookmarks in HTML format, which is useful for exporting and organizing bookmarks in a readable and accessible way in any modern web browser, including Brave.
+## Features
 
-Currently, two official plugins are available:
+-    JSON to HTML Conversion: Converts JSON files containing bookmarks into an HTML file that displays the bookmarks in a list structure.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-    Intuitive User Interface: The user interface provides an easy way to upload JSON files and view the generated HTML content.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-    Brave Compatibility: The converter is designed to be compatible with Brave, as well as other modern browsers, ensuring a consistent experience for Brave users.
