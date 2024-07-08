@@ -1,6 +1,7 @@
-import { Editor } from '@monaco-editor/react';
-import React, { useEffect, useState } from 'react';
-import useConverter from '../hook/useConverter';
+import { Editor } from "@monaco-editor/react";
+import * as React from "react";
+import { toast } from "react-toastify";
+import useConverter from "../hook/useConverter";
 
 type Props = {
   type: string;
@@ -8,6 +9,30 @@ type Props = {
 
 export default function HtmlBox({ type }: Props) {
   const { htmlContent } = useConverter();
+
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    if (htmlContent) {
+      const blob = new Blob([htmlContent], { type: "text/hmtl" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "bookmarks.html";
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+    } else {
+      toast("HTML empty", { type: "error" });
+    }
+  };
+  const handleCopy: React.MouseEventHandler<HTMLButtonElement> = () => {
+    if (htmlContent) {
+      navigator.clipboard.writeText(htmlContent);
+      toast("HTML copied", { type: "success" });
+    } else {
+      toast("HTML empty", { type: "error" });
+    }
+  };
   return (
     <>
       <div className="w-full h-full max-h-[600px] flex flex-col">
@@ -15,8 +40,8 @@ export default function HtmlBox({ type }: Props) {
           <div className="flex flex-wrap items-center sm:divide-x sm:rtl:divide-x-reverse divide-green-600">
             <div className="flex items-center space-x-1 rtl:space-x-reverse sm:pe-4">
               <button
-                type="button"
-                className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                onClick={handleCopy}
+                className="p-2 flex gap-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
               >
                 <svg
                   className="w-4 h-4"
@@ -39,11 +64,12 @@ export default function HtmlBox({ type }: Props) {
                   />
                 </svg>
 
-                <span className="sr-only">Format code</span>
+                <span className="text-xs">Copy to clipboard</span>
               </button>
               <button
                 type="button"
-                className="p-2 flex items-end justify-center text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                className="p-2 flex gap-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                onClick={handleClick}
               >
                 <svg
                   className="w-4 h-4 "
@@ -65,7 +91,7 @@ export default function HtmlBox({ type }: Props) {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-xs sr-only">Download HTML</span>
+                <span className="text-xs">Download HTML</span>
               </button>
             </div>
           </div>
@@ -73,7 +99,7 @@ export default function HtmlBox({ type }: Props) {
         {/*  */}
         <Editor
           className="w-full h-full max-h-[600px]"
-          path={'bookmarks.html'}
+          path={"bookmarks.html"}
           value={htmlContent}
           theme="vs-dark"
           defaultLanguage={type}

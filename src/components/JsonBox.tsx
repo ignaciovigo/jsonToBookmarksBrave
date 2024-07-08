@@ -28,6 +28,7 @@ export default function JsonBox({ type }: Props) {
   }
 
   const handleChange:React.ChangeEventHandler<HTMLElement> = (value) => {
+    setfileContent(value)
       updateJson(value)
   }
 
@@ -47,7 +48,7 @@ export default function JsonBox({ type }: Props) {
         <div className="flex items-center space-x-1 rtl:space-x-reverse sm:pe-4">
           <label
           htmlFor='file'
-            className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+            className="p-2 flex gap-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
           >
             <svg
               className="w-4 h-4"
@@ -63,7 +64,7 @@ export default function JsonBox({ type }: Props) {
                 d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6"
               />
             </svg>
-            <span className="ml-2 sr-only">Attach JSON file</span>
+            <span className="text-xs">Attach JSON file</span>
             <input type="file" accept='.json' name='file' id='file' hidden onChange={handleFileSelect}/>
           </label>
           <p id="error" className='text-xs text-red-600'>
